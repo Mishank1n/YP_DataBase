@@ -55,15 +55,19 @@ public class UserController {
                 switch (command){
                     case 1:
                         tableController.watchTable(user);
+                        ProgramController.exitBD();
                         break;
                     case 2:
                         tableController.addDataToTable(user);
+                        ProgramController.exitBD();
                         break;
                     case 3:
                         tableController.createTable(user);
+                        ProgramController.exitBD();
                         break;
                     case 4:
                         tableController.deleteTable(user);
+                        ProgramController.exitBD();
                         break;
                     case 5:
                         view(user);

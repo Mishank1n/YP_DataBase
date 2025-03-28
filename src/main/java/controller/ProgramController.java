@@ -19,10 +19,10 @@ import java.util.Scanner;
 
 public class ProgramController {
     public static final Scanner scanner = new Scanner(System.in);
-    private UserController userController;
-    private TableController tableController;
+    private static UserController userController;
+    private static TableController tableController;
     private AdminController adminController;
-    private final SecretKey key = KeyFromString.createKeyFromString("Mirea");
+    private static final SecretKey key = KeyFromString.createKeyFromString("Mirea");
 
 
     public void start() {
@@ -121,9 +121,11 @@ public class ProgramController {
                     break;
                 case 4:
                     userController.create();
+                    exitBD();
                     break;
                 case 5:
                     userController.delete();
+                    exitBD();
                     break;
                 case 6:
                     adminController.admin();
@@ -139,7 +141,7 @@ public class ProgramController {
         }
     }
 
-    private void exitBD() {
+    public static void exitBD() {
         try (Writer writer = new FileWriter("src/main/java/data/Users.txt")){
             for(User user : userController.getStorage().getStorage().values()){
                 writer.write(Aes.encrypt(user.getLogin(),key) + "\n");

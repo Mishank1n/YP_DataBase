@@ -34,21 +34,27 @@ public class AdminController {
                 switch (command){
                     case 1:
                         deleteUserByAdmin();
+                        ProgramController.exitBD();
                         break;
                     case 2:
                         deleteTableByAdmin();
+                        ProgramController.exitBD();
                         break;
                     case 3:
                         deleteAllUsersByAdmin();
+                        ProgramController.exitBD();
                         break;
                     case 4:
                         deleteAllTablesByAdmin();
+                        ProgramController.exitBD();
                         break;
                     case 5:
                         deleteBD();
+                        ProgramController.exitBD();
                         break;
                     case 6:
                         changeModeOfUser();
+                        ProgramController.exitBD();
                         break;
                     case 7:
                         System.out.println(Colors.ANSI_RED + "Прощайте правитель БД :( \n" + Colors.ANSI_RESET);
